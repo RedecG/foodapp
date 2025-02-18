@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "452691989915",
+    "firebase_url": "https://zsfoodorderapp-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "zsfoodorderapp",
+    "storage_bucket": "zsfoodorderapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:452691989915:android:84aa5100bbb414e0283d3e",
+        "android_client_info": {
+          "package_name": "com.example.foodorder"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5NCnJ2Hd-kez7ngOOnKGUjbDVt6Stq3g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

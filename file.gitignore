@@ -1,0 +1,32 @@
+# Flutter & Dart
+.dart_tool/
+.build/
+.packages
+.pub-cache/
+.pub/
+
+# iOS & macOS
+ios/Flutter/Flutter.podspec
+ios/.symlinks
+ios/Pods/
+ios/Runner.xcworkspace/
+macos/Pods/
+macos/.symlinks
+macos/Runner.xcworkspace/
+
+# Android
+android/.gradle/
+android/app/build/
+android/.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Xcode
+*.xcworkspace
+*.xcodeproj/
+*.xcassets/
+
+# Other
+*.log

@@ -1,0 +1,101 @@
+name: foodorder
+description: "A new Flutter project."
+
+
+publish_to: 'none' 
+
+
+
+
+
+
+
+
+
+
+
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.4
+
+
+
+
+
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_core: ^3.10.1
+  cloud_firestore:
+  intl:
+  provider:
+  firebase_auth:
+  flutter_login:
+  shared_preferences:
+  carousel_slider:
+
+
+  
+  
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  
+  
+  
+  
+  
+  flutter_lints: ^4.0.0
+
+
+
+
+
+flutter:
+  assets:
+    - assets/logo.png
+
+
+  
+  
+  
+  uses-material-design: true
+
+  
+  
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
