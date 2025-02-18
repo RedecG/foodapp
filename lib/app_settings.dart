@@ -34,6 +34,7 @@ class _AppSettingsPageState extends State<AppSettingsPage> {
       debugPrint("Error fetching conversion rate: $e");
     }
   }
+  //test
 
   Future<void> _updateConversionRate() async {
     double? newRate = double.tryParse(_rateController.text);
