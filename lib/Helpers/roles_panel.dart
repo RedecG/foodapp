@@ -9,12 +9,12 @@ class RolesPanelPage extends StatefulWidget {
 }
 
 class _RolesPanelPageState extends State<RolesPanelPage> {
-  final Color backgroundColor = const Color(0xFF1E1E2E); // Dark Blue-Gray
-  final Color cardColor = const Color(0xFF25273D); // Charcoal Gray
-  final Color textColor = const Color(0xFFEAEAEA); // Light Gray
-  final Color accentColor = const Color(0xFFC59B76); // Muted Gold
-  final Color adminColor = const Color(0xFFE74C3C); // Soft Red
-  final Color userColor = const Color(0xFF3498DB); // Muted Blue
+  final Color backgroundColor = const Color(0xFF1E1E2E);
+  final Color cardColor = const Color(0xFF25273D);
+  final Color textColor = const Color(0xFFEAEAEA);
+  final Color accentColor = const Color(0xFFC59B76);
+  final Color adminColor = const Color(0xFFE74C3C);
+  final Color userColor = const Color(0xFF3498DB);
 
   Future<void> _updateUserRole(String userId, String newRole) async {
     await FirebaseFirestore.instance.collection('users').doc(userId).update({
@@ -254,66 +254,76 @@ class _RolesPanelPageState extends State<RolesPanelPage> {
                 margin: const EdgeInsets.only(bottom: 12),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Column(
+                      Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            "$firstName $lastName",
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: textColor),
-                          ),
-                          const SizedBox(height: 4),
-                          Text(email,
-                              style: TextStyle(
-                                  color: textColor.withValues(alpha: 0.7))),
-                          const SizedBox(height: 6),
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 8, vertical: 4),
-                            decoration: BoxDecoration(
-                              color: _getRoleColor(role).withValues(alpha: 0.2),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Text(
-                              role.toUpperCase(),
-                              style: TextStyle(
-                                color: _getRoleColor(role),
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          IconButton(
-                            icon: const Icon(Icons.delete, color: Colors.red),
-                            onPressed: () => _deleteUser(userId),
-                          ),
-                          DropdownButtonHideUnderline(
-                            child: DropdownButton<String>(
-                              value: role,
-                              dropdownColor: cardColor,
-                              onChanged: (newRole) {
-                                if (newRole != null) {
-                                  _updateUserRole(userId, newRole);
-                                }
-                              },
-                              items: ["user", "admin"].map((role) {
-                                return DropdownMenuItem(
-                                  value: role,
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "$firstName $lastName",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: textColor),
+                                ),
+                                const SizedBox(height: 4),
+                                Text(email,
+                                    style: TextStyle(
+                                        color: textColor.withOpacity(0.7)),
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 1),
+                                const SizedBox(height: 6),
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 8, vertical: 4),
+                                  decoration: BoxDecoration(
+                                    color: _getRoleColor(role).withOpacity(0.2),
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
                                   child: Text(
                                     role.toUpperCase(),
-                                    style: TextStyle(color: textColor),
+                                    style: TextStyle(
+                                      color: _getRoleColor(role),
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                );
-                              }).toList(),
+                                ),
+                              ],
                             ),
+                          ),
+                          Row(
+                            children: [
+                              IconButton(
+                                icon:
+                                    const Icon(Icons.delete, color: Colors.red),
+                                onPressed: () => _deleteUser(userId),
+                              ),
+                              DropdownButtonHideUnderline(
+                                child: DropdownButton<String>(
+                                  value: role,
+                                  dropdownColor: cardColor,
+                                  onChanged: (newRole) {
+                                    if (newRole != null) {
+                                      _updateUserRole(userId, newRole);
+                                    }
+                                  },
+                                  items: ["user", "admin"].map((role) {
+                                    return DropdownMenuItem(
+                                      value: role,
+                                      child: Text(
+                                        role.toUpperCase(),
+                                        style: TextStyle(color: textColor),
+                                      ),
+                                    );
+                                  }).toList(),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
